@@ -1,20 +1,24 @@
 import { useState } from "react";
 
 function Square({ value, onSquareClick }) {
-  return <button className="square" onClick={onSquareClick}>{value}</button>;
+  return (
+    <button className="square" onClick={onSquareClick}>
+      {value}
+    </button>
+  );
 }
 
 export default function Board() {
   const [clickCount, setClickCount] = useState(0);
   const [xIsNext, setXIsNext] = useState(true);
   const [squares, setSquares] = useState(Array(9).fill(null));
-  
+
   const winner = calculateWinner(squares);
   let status;
   if (winner) {
     status = "Winner: " + winner;
   } else if (!winner && clickCount < 9) {
-    status = "Next Player: " + (xIsNext? "X" : "O");
+    status = "Next Player: " + (xIsNext ? "X" : "O");
   } else {
     status = "Game is Tied!";
   }
@@ -31,7 +35,7 @@ export default function Board() {
     }
     setSquares(nextSquares);
     setXIsNext(!xIsNext);
-    setClickCount(clickCount+1);
+    setClickCount(clickCount + 1);
   }
 
   return (
@@ -65,7 +69,7 @@ function calculateWinner(squares) {
     [1, 4, 7],
     [2, 5, 8],
     [0, 4, 8],
-    [2, 4, 6]
+    [2, 4, 6],
   ];
   for (let i = 0; i < lines.length; i++) {
     const [a, b, c] = lines[i];
