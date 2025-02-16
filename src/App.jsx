@@ -40,7 +40,7 @@ export default function Board() {
 
   return (
     <div className="@container w-33">
-      <div className="status">{status}</div>
+      <p>{status}</p>
       <div className="grid grid-cols-3 h-11">
         <Square styles={"border-t border-l"} value={squares[0]} onSquareClick={() => handleClick(0)} />
         <Square styles={"border-t border-l border-r"} value={squares[1]} onSquareClick={() => handleClick(1)} />
@@ -48,7 +48,7 @@ export default function Board() {
       </div>
       <div className="grid grid-cols-3 h-11">
         <Square styles={"border-t border-l border-b"} value={squares[3]} onSquareClick={() => handleClick(3)} />
-        <Square styles={"border-t border-l border-b border-r" }value={squares[4]} onSquareClick={() => handleClick(4)} />
+        <Square styles={"border-t border-l border-b border-r"} value={squares[4]} onSquareClick={() => handleClick(4)} />
         <Square styles={"border-t border-b border-r"} value={squares[5]} onSquareClick={() => handleClick(5)} />
       </div>
       <div className="grid grid-cols-3 h-11">
