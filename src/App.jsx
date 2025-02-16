@@ -1,8 +1,8 @@
 import { useState } from "react";
 
-function Square({ value, onSquareClick }) {
+function Square({ styles, value, onSquareClick }) {
   return (
-    <button className="outline-1" onClick={onSquareClick}>
+    <button className={styles} onClick={onSquareClick}>
       {value}
     </button>
   );
@@ -42,19 +42,19 @@ export default function Board() {
     <div className="@container w-33">
       <div className="status">{status}</div>
       <div className="grid grid-cols-3 h-11">
-        <Square value={squares[0]} onSquareClick={() => handleClick(0)} />
-        <Square value={squares[1]} onSquareClick={() => handleClick(1)} />
-        <Square value={squares[2]} onSquareClick={() => handleClick(2)} />
+        <Square styles={"border-t border-l"} value={squares[0]} onSquareClick={() => handleClick(0)} />
+        <Square styles={"border-t border-l border-r"} value={squares[1]} onSquareClick={() => handleClick(1)} />
+        <Square styles={"border-t border-r"} value={squares[2]} onSquareClick={() => handleClick(2)} />
       </div>
       <div className="grid grid-cols-3 h-11">
-        <Square value={squares[3]} onSquareClick={() => handleClick(3)} />
-        <Square value={squares[4]} onSquareClick={() => handleClick(4)} />
-        <Square value={squares[5]} onSquareClick={() => handleClick(5)} />
+        <Square styles={"border-t border-l border-b"} value={squares[3]} onSquareClick={() => handleClick(3)} />
+        <Square styles={"border-t border-l border-b border-r" }value={squares[4]} onSquareClick={() => handleClick(4)} />
+        <Square styles={"border-t border-b border-r"} value={squares[5]} onSquareClick={() => handleClick(5)} />
       </div>
       <div className="grid grid-cols-3 h-11">
-        <Square value={squares[6]} onSquareClick={() => handleClick(6)} />
-        <Square value={squares[7]} onSquareClick={() => handleClick(7)} />
-        <Square value={squares[8]} onSquareClick={() => handleClick(8)} />
+        <Square styles={"border-l border-b"} value={squares[6]} onSquareClick={() => handleClick(6)} />
+        <Square styles={"border-l border-b border-r"} value={squares[7]} onSquareClick={() => handleClick(7)} />
+        <Square styles={"border-b border-r"} value={squares[8]} onSquareClick={() => handleClick(8)} />
       </div>
     </div>
   );
